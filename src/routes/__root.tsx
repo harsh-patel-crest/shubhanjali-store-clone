@@ -77,16 +77,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Shubhanjali — Healing Crystals, Bracelets & Spiritual Decor" },
+      {
+        name: "description",
+        content:
+          "Shubhanjali is your one-stop destination for authentic healing crystals, gemstone bracelets, gem trees, pyramids and spiritual decor at affordable prices.",
+      },
+      { name: "author", content: "Shubhanjali" },
+      { property: "og:title", content: "Shubhanjali — Healing Crystals & Spiritual Store" },
+      {
+        property: "og:description",
+        content:
+          "Authentic handpicked healing crystals, gemstone bracelets and spiritual decor.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Shubhanjali" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
