@@ -165,7 +165,6 @@ function Index() {
           ))}
         </div>
       </section>
-    ],
-  }),
-  component: Index,
-});
+    </div>
+  );
+}
