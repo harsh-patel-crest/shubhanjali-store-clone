@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
+import { Route as ReturnsRefundPolicyRouteImport } from './routes/returns-refund-policy'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ShippingPolicyRoute = ShippingPolicyRouteImport.update({
   id: '/shipping-policy',
   path: '/shipping-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReturnsRefundPolicyRoute = ReturnsRefundPolicyRouteImport.update({
+  id: '/returns-refund-policy',
+  path: '/returns-refund-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutUsRoute = AboutUsRouteImport.update({
@@ -32,30 +38,39 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about-us' | '/shipping-policy'
+  fullPaths: '/' | '/about-us' | '/returns-refund-policy' | '/shipping-policy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-us' | '/shipping-policy'
-  id: '__root__' | '/' | '/about-us' | '/shipping-policy'
+  to: '/' | '/about-us' | '/returns-refund-policy' | '/shipping-policy'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-us'
+    | '/returns-refund-policy'
+    | '/shipping-policy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
+  ReturnsRefundPolicyRoute: typeof ReturnsRefundPolicyRoute
   ShippingPolicyRoute: typeof ShippingPolicyRoute
 }
 
@@ -66,6 +81,13 @@ declare module '@tanstack/react-router' {
       path: '/shipping-policy'
       fullPath: '/shipping-policy'
       preLoaderRoute: typeof ShippingPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/returns-refund-policy': {
+      id: '/returns-refund-policy'
+      path: '/returns-refund-policy'
+      fullPath: '/returns-refund-policy'
+      preLoaderRoute: typeof ReturnsRefundPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about-us': {
@@ -88,6 +110,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
+  ReturnsRefundPolicyRoute: ReturnsRefundPolicyRoute,
   ShippingPolicyRoute: ShippingPolicyRoute,
 }
 export const routeTree = rootRouteImport
