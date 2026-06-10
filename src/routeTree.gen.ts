@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as ReturnsRefundPolicyRouteImport } from './routes/returns-refund-policy'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShippingPolicyRoute = ShippingPolicyRouteImport.update({
   id: '/shipping-policy',
   path: '/shipping-policy',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
+  '/terms-conditions': typeof TermsConditionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
+  '/terms-conditions': typeof TermsConditionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,18 +61,30 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
+  '/terms-conditions': typeof TermsConditionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about-us' | '/returns-refund-policy' | '/shipping-policy'
+  fullPaths:
+    | '/'
+    | '/about-us'
+    | '/returns-refund-policy'
+    | '/shipping-policy'
+    | '/terms-conditions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-us' | '/returns-refund-policy' | '/shipping-policy'
+  to:
+    | '/'
+    | '/about-us'
+    | '/returns-refund-policy'
+    | '/shipping-policy'
+    | '/terms-conditions'
   id:
     | '__root__'
     | '/'
     | '/about-us'
     | '/returns-refund-policy'
     | '/shipping-policy'
+    | '/terms-conditions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -72,10 +92,18 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   ReturnsRefundPolicyRoute: typeof ReturnsRefundPolicyRoute
   ShippingPolicyRoute: typeof ShippingPolicyRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shipping-policy': {
       id: '/shipping-policy'
       path: '/shipping-policy'
@@ -112,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   ReturnsRefundPolicyRoute: ReturnsRefundPolicyRoute,
   ShippingPolicyRoute: ShippingPolicyRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
