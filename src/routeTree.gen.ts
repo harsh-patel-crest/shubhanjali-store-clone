@@ -14,6 +14,7 @@ import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as ReturnsRefundPolicyRouteImport } from './routes/returns-refund-policy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutUsRoute = AboutUsRouteImport.update({
   id: '/about-us',
   path: '/about-us',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/contact-us': typeof ContactUsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/contact-us': typeof ContactUsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/contact-us': typeof ContactUsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about-us'
+    | '/contact-us'
     | '/faq'
     | '/privacy-policy'
     | '/returns-refund-policy'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about-us'
+    | '/contact-us'
     | '/faq'
     | '/privacy-policy'
     | '/returns-refund-policy'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about-us'
+    | '/contact-us'
     | '/faq'
     | '/privacy-policy'
     | '/returns-refund-policy'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
+  ContactUsRoute: typeof ContactUsRoute
   FaqRoute: typeof FaqRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReturnsRefundPolicyRoute: typeof ReturnsRefundPolicyRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about-us': {
       id: '/about-us'
       path: '/about-us'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
+  ContactUsRoute: ContactUsRoute,
   FaqRoute: FaqRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReturnsRefundPolicyRoute: ReturnsRefundPolicyRoute,
