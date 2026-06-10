@@ -13,6 +13,7 @@ import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as ReturnsRefundPolicyRouteImport } from './routes/returns-refund-policy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as OrderTrackingRouteImport } from './routes/order-tracking'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CustomizedBraceletRouteImport } from './routes/customized-bracelet'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
@@ -38,6 +39,11 @@ const ReturnsRefundPolicyRoute = ReturnsRefundPolicyRouteImport.update({
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderTrackingRoute = OrderTrackingRouteImport.update({
+  id: '/order-tracking',
+  path: '/order-tracking',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/contact-us': typeof ContactUsRoute
   '/customized-bracelet': typeof CustomizedBraceletRoute
   '/faq': typeof FaqRoute
+  '/order-tracking': typeof OrderTrackingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/contact-us': typeof ContactUsRoute
   '/customized-bracelet': typeof CustomizedBraceletRoute
   '/faq': typeof FaqRoute
+  '/order-tracking': typeof OrderTrackingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/contact-us': typeof ContactUsRoute
   '/customized-bracelet': typeof CustomizedBraceletRoute
   '/faq': typeof FaqRoute
+  '/order-tracking': typeof OrderTrackingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
   '/shipping-policy': typeof ShippingPolicyRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/customized-bracelet'
     | '/faq'
+    | '/order-tracking'
     | '/privacy-policy'
     | '/returns-refund-policy'
     | '/shipping-policy'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/customized-bracelet'
     | '/faq'
+    | '/order-tracking'
     | '/privacy-policy'
     | '/returns-refund-policy'
     | '/shipping-policy'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/customized-bracelet'
     | '/faq'
+    | '/order-tracking'
     | '/privacy-policy'
     | '/returns-refund-policy'
     | '/shipping-policy'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   ContactUsRoute: typeof ContactUsRoute
   CustomizedBraceletRoute: typeof CustomizedBraceletRoute
   FaqRoute: typeof FaqRoute
+  OrderTrackingRoute: typeof OrderTrackingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReturnsRefundPolicyRoute: typeof ReturnsRefundPolicyRoute
   ShippingPolicyRoute: typeof ShippingPolicyRoute
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-tracking': {
+      id: '/order-tracking'
+      path: '/order-tracking'
+      fullPath: '/order-tracking'
+      preLoaderRoute: typeof OrderTrackingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactUsRoute: ContactUsRoute,
   CustomizedBraceletRoute: CustomizedBraceletRoute,
   FaqRoute: FaqRoute,
+  OrderTrackingRoute: OrderTrackingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReturnsRefundPolicyRoute: ReturnsRefundPolicyRoute,
   ShippingPolicyRoute: ShippingPolicyRoute,
