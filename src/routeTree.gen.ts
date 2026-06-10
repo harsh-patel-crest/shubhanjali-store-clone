@@ -9,8 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
+import { Route as ReturnsRefundPolicyRouteImport } from './routes/returns-refund-policy'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as OrderTrackingRouteImport } from './routes/order-tracking'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as CustomizedBraceletRouteImport } from './routes/customized-bracelet'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
+import { Route as BulkOrderRouteImport } from './routes/bulk-order'
+import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingPolicyRoute = ShippingPolicyRouteImport.update({
+  id: '/shipping-policy',
+  path: '/shipping-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReturnsRefundPolicyRoute = ReturnsRefundPolicyRouteImport.update({
+  id: '/returns-refund-policy',
+  path: '/returns-refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderTrackingRoute = OrderTrackingRouteImport.update({
+  id: '/order-tracking',
+  path: '/order-tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomizedBraceletRoute = CustomizedBraceletRouteImport.update({
+  id: '/customized-bracelet',
+  path: '/customized-bracelet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BulkOrderRoute = BulkOrderRouteImport.update({
+  id: '/bulk-order',
+  path: '/bulk-order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +85,186 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/bulk-order': typeof BulkOrderRoute
+  '/contact-us': typeof ContactUsRoute
+  '/customized-bracelet': typeof CustomizedBraceletRoute
+  '/faq': typeof FaqRoute
+  '/order-tracking': typeof OrderTrackingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-conditions': typeof TermsConditionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/bulk-order': typeof BulkOrderRoute
+  '/contact-us': typeof ContactUsRoute
+  '/customized-bracelet': typeof CustomizedBraceletRoute
+  '/faq': typeof FaqRoute
+  '/order-tracking': typeof OrderTrackingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-conditions': typeof TermsConditionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/bulk-order': typeof BulkOrderRoute
+  '/contact-us': typeof ContactUsRoute
+  '/customized-bracelet': typeof CustomizedBraceletRoute
+  '/faq': typeof FaqRoute
+  '/order-tracking': typeof OrderTrackingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-conditions': typeof TermsConditionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-us'
+    | '/bulk-order'
+    | '/contact-us'
+    | '/customized-bracelet'
+    | '/faq'
+    | '/order-tracking'
+    | '/privacy-policy'
+    | '/returns-refund-policy'
+    | '/shipping-policy'
+    | '/sitemap.xml'
+    | '/terms-conditions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about-us'
+    | '/bulk-order'
+    | '/contact-us'
+    | '/customized-bracelet'
+    | '/faq'
+    | '/order-tracking'
+    | '/privacy-policy'
+    | '/returns-refund-policy'
+    | '/shipping-policy'
+    | '/sitemap.xml'
+    | '/terms-conditions'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-us'
+    | '/bulk-order'
+    | '/contact-us'
+    | '/customized-bracelet'
+    | '/faq'
+    | '/order-tracking'
+    | '/privacy-policy'
+    | '/returns-refund-policy'
+    | '/shipping-policy'
+    | '/sitemap.xml'
+    | '/terms-conditions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutUsRoute: typeof AboutUsRoute
+  BulkOrderRoute: typeof BulkOrderRoute
+  ContactUsRoute: typeof ContactUsRoute
+  CustomizedBraceletRoute: typeof CustomizedBraceletRoute
+  FaqRoute: typeof FaqRoute
+  OrderTrackingRoute: typeof OrderTrackingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ReturnsRefundPolicyRoute: typeof ReturnsRefundPolicyRoute
+  ShippingPolicyRoute: typeof ShippingPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-policy': {
+      id: '/shipping-policy'
+      path: '/shipping-policy'
+      fullPath: '/shipping-policy'
+      preLoaderRoute: typeof ShippingPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/returns-refund-policy': {
+      id: '/returns-refund-policy'
+      path: '/returns-refund-policy'
+      fullPath: '/returns-refund-policy'
+      preLoaderRoute: typeof ReturnsRefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-tracking': {
+      id: '/order-tracking'
+      path: '/order-tracking'
+      fullPath: '/order-tracking'
+      preLoaderRoute: typeof OrderTrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customized-bracelet': {
+      id: '/customized-bracelet'
+      path: '/customized-bracelet'
+      fullPath: '/customized-bracelet'
+      preLoaderRoute: typeof CustomizedBraceletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bulk-order': {
+      id: '/bulk-order'
+      path: '/bulk-order'
+      fullPath: '/bulk-order'
+      preLoaderRoute: typeof BulkOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +277,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutUsRoute: AboutUsRoute,
+  BulkOrderRoute: BulkOrderRoute,
+  ContactUsRoute: ContactUsRoute,
+  CustomizedBraceletRoute: CustomizedBraceletRoute,
+  FaqRoute: FaqRoute,
+  OrderTrackingRoute: OrderTrackingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ReturnsRefundPolicyRoute: ReturnsRefundPolicyRoute,
+  ShippingPolicyRoute: ShippingPolicyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
