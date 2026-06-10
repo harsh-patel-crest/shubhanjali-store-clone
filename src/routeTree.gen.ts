@@ -14,6 +14,7 @@ import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as ReturnsRefundPolicyRouteImport } from './routes/returns-refund-policy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as CustomizedBraceletRouteImport } from './routes/customized-bracelet'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as BulkOrderRouteImport } from './routes/bulk-order'
 import { Route as AboutUsRouteImport } from './routes/about-us'
@@ -44,6 +45,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomizedBraceletRoute = CustomizedBraceletRouteImport.update({
+  id: '/customized-bracelet',
+  path: '/customized-bracelet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactUsRoute = ContactUsRouteImport.update({
   id: '/contact-us',
   path: '/contact-us',
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/bulk-order': typeof BulkOrderRoute
   '/contact-us': typeof ContactUsRoute
+  '/customized-bracelet': typeof CustomizedBraceletRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about-us': typeof AboutUsRoute
   '/bulk-order': typeof BulkOrderRoute
   '/contact-us': typeof ContactUsRoute
+  '/customized-bracelet': typeof CustomizedBraceletRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/bulk-order': typeof BulkOrderRoute
   '/contact-us': typeof ContactUsRoute
+  '/customized-bracelet': typeof CustomizedBraceletRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/returns-refund-policy': typeof ReturnsRefundPolicyRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/bulk-order'
     | '/contact-us'
+    | '/customized-bracelet'
     | '/faq'
     | '/privacy-policy'
     | '/returns-refund-policy'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/bulk-order'
     | '/contact-us'
+    | '/customized-bracelet'
     | '/faq'
     | '/privacy-policy'
     | '/returns-refund-policy'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/bulk-order'
     | '/contact-us'
+    | '/customized-bracelet'
     | '/faq'
     | '/privacy-policy'
     | '/returns-refund-policy'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   BulkOrderRoute: typeof BulkOrderRoute
   ContactUsRoute: typeof ContactUsRoute
+  CustomizedBraceletRoute: typeof CustomizedBraceletRoute
   FaqRoute: typeof FaqRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReturnsRefundPolicyRoute: typeof ReturnsRefundPolicyRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customized-bracelet': {
+      id: '/customized-bracelet'
+      path: '/customized-bracelet'
+      fullPath: '/customized-bracelet'
+      preLoaderRoute: typeof CustomizedBraceletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact-us': {
       id: '/contact-us'
       path: '/contact-us'
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   BulkOrderRoute: BulkOrderRoute,
   ContactUsRoute: ContactUsRoute,
+  CustomizedBraceletRoute: CustomizedBraceletRoute,
   FaqRoute: FaqRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReturnsRefundPolicyRoute: ReturnsRefundPolicyRoute,
