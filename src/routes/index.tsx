@@ -27,9 +27,9 @@ export const Route = createFileRoute("/")({
 
 const categories = [
   { label: "Bracelets", desc: "Absorb the energy of crystals", to: "/customized-bracelet" },
-  { label: "Gem Trees", desc: "Bring positivity into your home", to: "/shop" },
-  { label: "Healing Crystals", desc: "Authentic natural stones", to: "/shop" },
-  { label: "Spheres & Pyramids", desc: "Balance your space", to: "/shop" },
+  { label: "Gem Trees", desc: "Bring positivity into your home", to: "/bulk-order" },
+  { label: "Healing Crystals", desc: "Authentic natural stones", to: "/about-us" },
+  { label: "Spheres & Pyramids", desc: "Balance your space", to: "/contact-us" },
 ];
 
 const features = [
