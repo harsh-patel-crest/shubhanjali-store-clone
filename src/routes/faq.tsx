@@ -1,36 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageBanner } from "@/components/PageBanner";
-
-export const Route = createFileRoute("/faq")({
-  head: () => ({
-    meta: [
-      { title: "FAQ — Shubhanjali" },
-      {
-        name: "description",
-        content:
-          "Frequently asked questions about Shubhanjali: COD, order confirmation, packaging, payment security, delivery times and order cancellation.",
-      },
-      { property: "og:title", content: "Frequently Asked Questions — Shubhanjali" },
-      { property: "og:url", content: "/faq" },
-    ],
-    links: [{ rel: "canonical", href: "/faq" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqs.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        }),
-      },
-    ],
-  }),
-  component: FaqPage,
-});
+import { StaticPageLayout } from "@/components/site/StaticPageLayout";
 
 const faqs = [
   { q: "Do you offer COD?", a: "Yes, we offer Cash on Delivery (COD)." },
@@ -52,12 +22,12 @@ const faqs = [
   },
   {
     q: "Whom should I talk to if I have a concern?",
-    a: "Feel free to reach us at info@shubhanjalistore.com and we'll be more than happy to assist you.",
+    a: "Feel free to reach us at hello@gajanangems.com and we'll be more than happy to assist you.",
   },
 ];
 
 const cancellationSteps = [
-  "Login to your account on the Shubhanjali website.",
+  "Login to your account on the GajananGems website.",
   'Go to your "Account" tab and click on the "Order" option.',
   'Look for the product order you want and click on the "Cancel request" option.',
   'A form titled "Request Order Cancellation" will appear — enter the reason for your cancellation.',
@@ -66,9 +36,26 @@ const cancellationSteps = [
   "Your request for order cancellation will be processed within 48 hours.",
 ];
 
+export const Route = createFileRoute("/faq")({
+  head: () => ({
+    meta: [
+      { title: "FAQ — GajananGems" },
+      {
+        name: "description",
+        content:
+          "Frequently asked questions about GajananGems: COD, order confirmation, packaging, payment security, delivery times and order cancellation.",
+      },
+      { property: "og:title", content: "Frequently Asked Questions — GajananGems" },
+      { property: "og:url", content: "/faq" },
+    ],
+    links: [{ rel: "canonical", href: "/faq" }],
+  }),
+  component: FaqPage,
+});
+
 function FaqPage() {
   return (
-    <>
+    <StaticPageLayout>
       <PageBanner title="Frequently Asked Questions" crumb="Frequently Asked Questions" />
       <div className="mx-auto max-w-3xl px-4 py-12">
         <div className="space-y-5">
@@ -90,6 +77,6 @@ function FaqPage() {
           </div>
         </div>
       </div>
-    </>
+    </StaticPageLayout>
   );
 }

@@ -1,18 +1,15 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AiChat } from "@/components/site/AiChat";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
 
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { CartProvider } from "@/lib/cart";
+import { WishlistProvider } from "@/lib/wishlist";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -39,9 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -75,73 +69,23 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Shubhanjali — Healing Crystals, Bracelets & Spiritual Decor" },
-      {
-        name: "description",
-        content:
-          "Shubhanjali is your one-stop destination for authentic healing crystals, gemstone bracelets, gem trees, pyramids and spiritual decor at affordable prices.",
-      },
-      { name: "author", content: "Shubhanjali" },
-      { property: "og:title", content: "Shubhanjali — Healing Crystals & Spiritual Store" },
-      {
-        property: "og:description",
-        content:
-          "Authentic handpicked healing crystals, gemstone bracelets and spiritual decor.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Shubhanjali" },
-      { name: "twitter:card", content: "summary" },
-    ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap",
-      },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <WishlistProvider>
+        <CartProvider>
           <Outlet />
-        </main>
-        <Footer />
-      </div>
+          <AiChat />
+          <Toaster position="bottom-left" richColors />
+        </CartProvider>
+      </WishlistProvider>
     </QueryClientProvider>
   );
 }

@@ -1,17 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageBanner } from "@/components/PageBanner";
 import { ContactForm } from "@/components/ContactForm";
+import { StaticPageLayout } from "@/components/site/StaticPageLayout";
 
 export const Route = createFileRoute("/bulk-order")({
   head: () => ({
     meta: [
-      { title: "Bulk Order — Shubhanjali" },
+      { title: "Bulk Order — GajananGems" },
       {
         name: "description",
         content:
-          "Shubhanjali accepts bulk orders for wholesalers, retailers and businesses, with customization options for branding and packaging.",
+          "GajananGems accepts bulk orders for wholesalers, retailers and businesses, with customization options for branding and packaging.",
       },
-      { property: "og:title", content: "Bulk Order — Shubhanjali" },
+      { property: "og:title", content: "Bulk Order — GajananGems" },
       { property: "og:url", content: "/bulk-order" },
     ],
     links: [{ rel: "canonical", href: "/bulk-order" }],
@@ -21,12 +22,12 @@ export const Route = createFileRoute("/bulk-order")({
 
 function BulkOrderPage() {
   return (
-    <>
+    <StaticPageLayout>
       <PageBanner title="Bulk Order" crumb="Bulk Order" />
       <div className="mx-auto max-w-3xl px-4 py-12">
         <article className="prose-policy">
           <p>
-            At Shubhanjali, we are proud to announce that we accept bulk orders. Whether you are a
+            At GajananGems, we are proud to announce that we accept bulk orders. Whether you are a
             wholesaler, retailer, or business in need of a large quantity of products, we have the
             capacity and expertise to fulfill your requirements.
           </p>
@@ -56,6 +57,6 @@ function BulkOrderPage() {
           />
         </div>
       </div>
-    </>
+    </StaticPageLayout>
   );
 }

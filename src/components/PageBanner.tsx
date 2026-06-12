@@ -10,7 +10,7 @@ export function PageBanner({
   subtitle?: string;
 }) {
   return (
-    <section className="bg-gradient-to-b from-peach-soft to-background">
+    <section className="bg-gradient-to-b from-secondary to-background">
       <div className="mx-auto max-w-6xl px-4 py-12 text-center sm:py-16">
         <nav className="mb-3 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-primary">

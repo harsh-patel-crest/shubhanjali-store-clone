@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageBanner } from "@/components/PageBanner";
+import { StaticPageLayout } from "@/components/site/StaticPageLayout";
 
 export const Route = createFileRoute("/about-us")({
   head: () => ({
     meta: [
-      { title: "About Us — Shubhanjali" },
+      { title: "About Us — GajananGems" },
       {
         name: "description",
         content:
-          "Learn about Shubhanjali, a one-stop destination for affordable spiritual & holistic healing products, founded by Priyanka Gupta in 2019.",
+          "Learn about GajananGems, rooted in Khambhat — India's agate capital — offering authentic spiritual & holistic healing products since 2010.",
       },
-      { property: "og:title", content: "About Us — Shubhanjali" },
-      { property: "og:description", content: "The story of Shubhanjali and what we do." },
+      { property: "og:title", content: "About Us — GajananGems" },
       { property: "og:url", content: "/about-us" },
     ],
     links: [{ rel: "canonical", href: "/about-us" }],
@@ -21,59 +21,74 @@ export const Route = createFileRoute("/about-us")({
 
 function AboutPage() {
   return (
-    <>
+    <StaticPageLayout>
       <PageBanner title="About Us" crumb="About Us" />
       <article className="prose-policy mx-auto max-w-3xl px-4 py-12">
-        <h4>Here's a Little Bit About WHAT WE DO</h4>
+        <h4>What We Do</h4>
         <p>
-          Shubhanjali is a one-stop destination for all your affordable Spiritual & Holistic
-          Healing requirements. Our endless product line includes everything from Reiki products,
+          GajananGems is a one stop destination for all your affordable Spiritual &amp; Holistic
+          Healing requirements. Our extensive product line includes everything from Reiki products,
           Crystals, Healing stone accessories, Gem Trees, Angels, Yantras, Pyramids, Jap Malas,
-          precious/semi-precious items and much more.
+          precious and semi precious items, and much more each piece handcrafted with care and
+          authenticity.
         </p>
-        <h4>Here's the story of HOW WE BEGAN</h4>
+
+        <h4>Rooted in Khambhat — India's Agate Capital</h4>
         <p>
-          Our Director and founder, Priyanka Gupta, a woman of substance, had always envisioned a
-          dream of marking her footsteps in an industry that is highly unorganized — Healing
-          Crystals and Stones.
-        </p>
-        <p>
-          Carrying this vision forward, she embarked on the journey of Shubhanjali back in 2019. To
-          a homemaker and a doting mother of a three-year-old, the idea of Shubhanjali took birth
-          under the guidance of her supportive father-in-law, Dr. Prem Gupta. Since then there has
-          been no looking back!
+          GajananGems is proudly based in Khambhat, Gujarat the historic heartland of agate and
+          gemstone craftsmanship. Khambhat has been the central hub for agate and healing stone
+          products for centuries. Nearly every agate product you find across India and around the
+          world passes through Khambhat, where generations of skilled artisans hand craft these
+          beautiful stones with unmatched expertise.
         </p>
         <p>
-          The brand was born with a desire to bring knowledge about alternative healing and the use
-          of transformation tools. Shubhanjali is committed to providing authentic handpicked
-          products that can be customized as per your requirements. We are constantly adding more
-          and more products every day.
+          Being rooted in Khambhat means we have direct access to the finest raw materials and
+          master craftspeople, allowing us to offer you authentic, high quality products at fair
+          prices without any middlemen.
+        </p>
+
+        <h4>Our Story</h4>
+        <p>
+          GajananGems was founded in 2010 with a clear vision: to bring genuine, handcrafted
+          healing crystals and spiritual products to customers across India and the world. What
+          began as a local endeavour in Khambhat has grown into a trusted name that exports
+          products globally, reaching customers across continents who seek authentic healing stones
+          and spiritual accessories.
         </p>
         <p>
-          Spanning over 5000 sq. ft, Shubhanjali boasts of being the sole showroom in Mumbai with
-          over a thousand healing products and accessories on display. The best part? You get to
-          touch and feel the products before making a purchase!
+          Over the years, we have built lasting relationships with artisans, wholesalers, and
+          individual customers alike always staying true to our commitment of quality,
+          authenticity, and affordability.
         </p>
-        <h4>A bit ABOUT PRIYANKA GUPTA</h4>
+
+        <h4>About Chunara Mayank</h4>
         <p>
-          Priyanka, who has been the core representative of the brand, works with utmost dedication
-          to educate people about crystal therapy and healing. She says, "We have given weightage
-          and respect to crystals by providing high energy authentic stones and crystals at
-          reasonable prices. We are fully dedicated to providing you authentic products that assist
-          you in alternative healing, spiritual awakening, corporate gifting, and much more. We also
-          participate in various exhibitions and workshops on spiritual items to bring them close to
-          people."
+          GajananGems is led by <strong>Chunara Mayank</strong>, whose deep roots in Khambhat's
+          gemstone industry have shaped the brand from its very beginning. With a hands on
+          understanding of every step from raw stone to finished product Mayank has built
+          GajananGems on a foundation of trust, craftsmanship, and a genuine passion for healing
+          crystals. His dedication ensures that every product leaving our workshop meets the
+          highest standards of quality and authenticity.
         </p>
-        <p>We are certain that this is just the start!</p>
-        <h4>How you can MAKE A PURCHASE</h4>
+
+        <h4>Our Showroom &amp; Global Reach</h4>
         <p>
-          If you wish to see something that is not here, please write to us at{" "}
-          <a href="mailto:info@shubhanjalistore.com" className="text-primary underline">
-            info@shubhanjalistore.com
+          Our showroom is located in Khambhat, Gujarat, where you are welcome to visit, touch,
+          and feel our products before making a purchase. Beyond our local presence, we ship
+          products nationwide across India and export to customers all over the world bringing
+          the finest of Khambhat's craftsmanship to every corner of the globe.
+        </p>
+
+        <h4>How to Make a Purchase</h4>
+        <p>
+          If you are looking for something specific or have a custom requirement, please write to
+          us at{" "}
+          <a href="mailto:hello@gajanangems.com" className="text-primary underline">
+            hello@gajanangems.com
           </a>
-          . Still have questions? You can drop into our Showroom.
+          . You are also welcome to visit our showroom in Khambhat, Gujarat.
         </p>
       </article>
-    </>
+    </StaticPageLayout>
   );
 }

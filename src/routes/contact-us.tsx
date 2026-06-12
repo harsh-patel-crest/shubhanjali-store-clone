@@ -2,17 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { PageBanner } from "@/components/PageBanner";
 import { ContactForm } from "@/components/ContactForm";
+import { StaticPageLayout } from "@/components/site/StaticPageLayout";
 
 export const Route = createFileRoute("/contact-us")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Shubhanjali" },
+      { title: "Contact Us — GajananGems" },
       {
         name: "description",
         content:
-          "Get in touch with Shubhanjali. Email info@shubhanjalistore.com, call +91 98190 10536, or visit our showroom in Mumbai.",
+          "Get in touch with GajananGems. Email hello@gajanangems.com, call +91 63515 63768, or visit our showroom in Mumbai.",
       },
-      { property: "og:title", content: "Contact Us — Shubhanjali" },
+      { property: "og:title", content: "Contact Us — GajananGems" },
       { property: "og:url", content: "/contact-us" },
     ],
     links: [{ rel: "canonical", href: "/contact-us" }],
@@ -21,14 +22,14 @@ export const Route = createFileRoute("/contact-us")({
 });
 
 const details = [
-  { icon: Mail, label: "Email", value: "info@shubhanjalistore.com", href: "mailto:info@shubhanjalistore.com" },
-  { icon: Phone, label: "Phone / WhatsApp", value: "+91 98190 10536", href: "tel:+919819010536" },
-  { icon: MapPin, label: "Showroom", value: "Mumbai, India", href: undefined },
+  { icon: Mail, label: "Email", value: "hello@gajanangems.com", href: "mailto:hello@gajanangems.com" },
+  { icon: Phone, label: "Phone / WhatsApp", value: "+91 63515 63768", href: "tel:+916351563768" },
+  { icon: MapPin, label: "Showroom", value: "Khambhat , Gujarat India", href: undefined },
 ];
 
 function ContactPage() {
   return (
-    <>
+    <StaticPageLayout>
       <PageBanner title="Contact Us" crumb="Contact Us" subtitle="We'd love to hear from you." />
       <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 lg:grid-cols-2">
         <div className="space-y-6">
@@ -53,6 +54,6 @@ function ContactPage() {
           <ContactForm />
         </div>
       </div>
-    </>
+    </StaticPageLayout>
   );
 }

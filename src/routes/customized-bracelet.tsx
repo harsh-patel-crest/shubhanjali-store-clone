@@ -2,23 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 import { PageBanner } from "@/components/PageBanner";
 import { ContactForm } from "@/components/ContactForm";
-
-export const Route = createFileRoute("/customized-bracelet")({
-  head: () => ({
-    meta: [
-      { title: "Create Your Own Customized Crystal Bracelet — Shubhanjali" },
-      {
-        name: "description",
-        content:
-          "Design your own customized crystal bracelet online in India. Choose natural crystal beads, bead size and wrist size — handmade authentic healing bracelets.",
-      },
-      { property: "og:title", content: "Customized Crystal Bracelet — Shubhanjali" },
-      { property: "og:url", content: "/customized-bracelet" },
-    ],
-    links: [{ rel: "canonical", href: "/customized-bracelet" }],
-  }),
-  component: CustomBraceletPage,
-});
+import { StaticPageLayout } from "@/components/site/StaticPageLayout";
 
 const highlights = [
   "Create Your Own Crystal Bracelet Online",
@@ -62,9 +46,26 @@ const faqs = [
   },
 ];
 
+export const Route = createFileRoute("/customized-bracelet")({
+  head: () => ({
+    meta: [
+      { title: "Create Your Own Customized Crystal Bracelet — GajananGems" },
+      {
+        name: "description",
+        content:
+          "Design your own customized crystal bracelet online in India. Choose natural crystal beads, bead size and wrist size — handmade authentic healing bracelets.",
+      },
+      { property: "og:title", content: "Customized Crystal Bracelet — GajananGems" },
+      { property: "og:url", content: "/customized-bracelet" },
+    ],
+    links: [{ rel: "canonical", href: "/customized-bracelet" }],
+  }),
+  component: CustomBraceletPage,
+});
+
 function CustomBraceletPage() {
   return (
-    <>
+    <StaticPageLayout>
       <PageBanner
         title="Create Your Own Customized Crystal Bracelet"
         crumb="Customized Crystal Bracelet"
@@ -73,7 +74,7 @@ function CustomBraceletPage() {
       <div className="mx-auto max-w-3xl px-4 py-12">
         <article className="prose-policy">
           <p>
-            Welcome to Shubhanjali Store — India's first platform where you can create your own
+            Welcome to GajananGems — India's first platform where you can create your own
             customized crystal bracelet online with complete flexibility.
           </p>
           <p>
@@ -96,7 +97,7 @@ function CustomBraceletPage() {
 
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {highlights.map((h) => (
-            <li key={h} className="flex items-center gap-2 rounded-xl bg-peach-soft px-4 py-3 text-sm font-medium text-foreground">
+            <li key={h} className="flex items-center gap-2 rounded-xl bg-secondary px-4 py-3 text-sm font-medium text-foreground">
               <Sparkles size={16} className="text-primary" /> {h}
             </li>
           ))}
@@ -125,6 +126,6 @@ function CustomBraceletPage() {
           </div>
         </div>
       </div>
-    </>
+    </StaticPageLayout>
   );
 }

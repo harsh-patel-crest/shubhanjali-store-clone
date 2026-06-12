@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageBanner } from "@/components/PageBanner";
+import { StaticPageLayout } from "@/components/site/StaticPageLayout";
 
 export const Route = createFileRoute("/returns-refund-policy")({
   head: () => ({
     meta: [
-      { title: "Returns & Refund Policy — Shubhanjali" },
+      { title: "Returns & Refund Policy — GajananGems" },
       {
         name: "description",
         content:
-          "Shubhanjali returns and refund policy: eligibility, return shipping, inspection, refund timeframe and non-returnable items.",
+          "GajananGems returns and refund policy: eligibility, return shipping, inspection, refund timeframe and non-returnable items.",
       },
-      { property: "og:title", content: "Returns & Refund Policy — Shubhanjali" },
+      { property: "og:title", content: "Returns & Refund Policy — GajananGems" },
       { property: "og:url", content: "/returns-refund-policy" },
     ],
     links: [{ rel: "canonical", href: "/returns-refund-policy" }],
@@ -20,11 +21,11 @@ export const Route = createFileRoute("/returns-refund-policy")({
 
 function ReturnsPage() {
   return (
-    <>
+    <StaticPageLayout>
       <PageBanner title="Returns and Refund Policy" crumb="Returns and Refund Policy" />
       <article className="prose-policy mx-auto max-w-3xl px-4 py-12">
         <p>
-          Thank you for shopping with Shubhanjali. We appreciate your business and want to ensure
+          Thank you for shopping with GajananGems. We appreciate your business and want to ensure
           your satisfaction with our products. Please review our return and refund policy carefully.
         </p>
         <h4>1. Return Eligibility</h4>
@@ -50,7 +51,7 @@ function ReturnsPage() {
         <p>
           Once we receive the returned items, our team will inspect them for eligibility. If the
           items meet our return criteria, we will process the refund via bank transfer only. Kindly
-          share your bank details by Email: info@shubhanjalistore.com or WhatsApp: 9819010536. If
+          share your bank details by Email: hello@gajanangems.com or WhatsApp: 6351563768. If
           you opt to replace or change any received item, please note that return courier charges of
           up to ₹150 will apply. Replacement or exchange will be facilitated upon receipt of the
           item at our office.
@@ -83,16 +84,16 @@ function ReturnsPage() {
         <p>
           For any questions or concerns regarding our return and refund policy, please contact our
           customer service team at{" "}
-          <a href="mailto:info@shubhanjalistore.com" className="text-primary underline">
-            info@shubhanjalistore.com
+          <a href="mailto:hello@gajanangems.com" className="text-primary underline">
+            hello@gajanangems.com
           </a>
           .
         </p>
         <p>
           Note: This return and refund policy is subject to change without notice. Please check our
-          website for the most up-to-date policy information. Thank you for choosing Shubhanjali.
+          website for the most up-to-date policy information. Thank you for choosing GajananGems.
         </p>
       </article>
-    </>
+    </StaticPageLayout>
   );
 }
